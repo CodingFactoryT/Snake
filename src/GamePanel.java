@@ -32,8 +32,12 @@ public class GamePanel extends JPanel implements ActionListener{
 	private int bodyParts = 3;
 	private int snakeDirection = 'D';
 	
-	private boolean isGameRunning = true;
+	private boolean isGameRunning = false;
 	Timer timer;
+	
+	PauseMenu pauseMenu = new PauseMenu();
+    GameOverScreen goScreen = new GameOverScreen();
+
 	public GamePanel(){
 		generateNewFoodItemPosition();
 		
@@ -42,6 +46,8 @@ public class GamePanel extends JPanel implements ActionListener{
 		timer.start();
 		this.setFocusable(true);
 		this.addKeyListener(new InputManager());
+		this.add(pauseMenu);
+		this.add(goScreen);
 	}
 	
 	public void generateNewFoodItemPosition() {
@@ -87,9 +93,30 @@ public class GamePanel extends JPanel implements ActionListener{
 		return false;
 	}
 	
-	public boolean checkFoodEaten() {
+	private boolean checkFoodEaten() {
 		if(bodyPartsX[0] == foodItemPositionX && bodyPartsY[0] == foodItemPositionY) return true;
 		return false;
+	}
+	
+	private void gameOver() {
+		isGameRunning = false;
+		timer.stop();
+		goScreen.setVisible(true);
+	}
+	
+	public void retry() {
+		goScreen.setVisible(false);
+		bodyParts = 3;
+		snakeDirection = 'D';
+		
+		for(int i = 0; i < bodyParts; i++) {
+			bodyPartsX[i] = 0;
+			bodyPartsY[i] = 0;
+		}
+		
+		timer.start();
+		generateNewFoodItemPosition();
+		repaint();
 	}
 	
 	@Override
@@ -134,12 +161,12 @@ public class GamePanel extends JPanel implements ActionListener{
 			}		
 			
 			if(checkColission()) {
-				isGameRunning = false;
-				timer.stop();
+				gameOver();
 			}
 
 		}
 		repaint();
+		
 	}
 	
 	public class InputManager extends KeyAdapter{
@@ -158,7 +185,14 @@ public class GamePanel extends JPanel implements ActionListener{
 				break;
 			case KeyEvent.VK_DOWN:
 				if(snakeDirection != 'U') snakeDirection = 'D';
-				break;		
+				break;
+			case KeyEvent.VK_SPACE:
+				isGameRunning = !isGameRunning;
+				if(isGameRunning) pauseMenu.setVisible(false);
+				else pauseMenu.setVisible(true);
+				break;
+			case KeyEvent.VK_ENTER:
+				if(!isGameRunning && goScreen.isVisible()) retry();
 			}
 		}
 	}
