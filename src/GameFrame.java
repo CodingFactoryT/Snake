@@ -8,8 +8,8 @@ import javax.swing.JFrame;
 
 public class GameFrame extends JFrame{
 	
-	public static final int FRAME_WIDTH = 1000;
-	public static final int FRAME_HEIGHT = 1000;
+	public static final int FRAME_WIDTH = 900;
+	public static final int FRAME_HEIGHT = 900;
 	public static GamePanel gamePanel= new GamePanel();
 	
 	GameFrame(){	
