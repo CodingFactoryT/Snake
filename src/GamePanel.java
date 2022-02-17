@@ -114,6 +114,7 @@ public class GamePanel extends JPanel implements ActionListener{
 			bodyPartsY[i] = 0;
 		}
 		
+		isGameRunning = false;
 		timer.start();
 		generateNewFoodItemPosition();
 		repaint();
@@ -189,10 +190,10 @@ public class GamePanel extends JPanel implements ActionListener{
 			case KeyEvent.VK_SPACE:
 				isGameRunning = !isGameRunning;
 				if(isGameRunning) pauseMenu.setVisible(false);
-				else pauseMenu.setVisible(true);
+				else if(!goScreen.isVisible())pauseMenu.setVisible(true);
 				break;
 			case KeyEvent.VK_ENTER:
-				if(!isGameRunning && goScreen.isVisible()) retry();
+				if(goScreen.isVisible()) retry();
 			}
 		}
 	}
