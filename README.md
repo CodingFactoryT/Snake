@@ -10,4 +10,4 @@ RIGHT <kbd>RIGHT ARROW</kbd> <br>
 PAUSE <kbd>SPACE BAR</kbd> <br>
 RESUME <kbd>SPACE BAR</kbd> <br>
 
-RETRY  Press the "Retry" button or press <kbd>ENTER</kbd>
+RETRY -- Press the "Retry" button or press <kbd>ENTER</kbd>
