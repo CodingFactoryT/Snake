@@ -2,12 +2,12 @@
 Eat apples to increase your score
 
 ### Controls:
-UP..............UP ARROW <br>
-DOWN.....DOWN ARROW <br>
-LEFT..........LEFT ARROW <br>
-RIGHT......RIGHT ARROW <br>
+UP <kbd>UP ARROW</kbd> <br>
+DOWN <kbd>DOWN ARROW</kbd> <br>
+LEFT <kbd>LEFT ARROW</kbd> <br>
+RIGHT <kbd>RIGHT ARROW</kbd> <br>
 
-PAUSE......SPACE BAR <br>
-RESUME..SPACE BAR <br>
+PAUSE <kbd>SPACE BAR</kbd> <br>
+RESUME <kbd>SPACE BAR</kbd> <br>
 
-RETRY.......Press the "Retry" button or press ENTER
+RETRY  Press the "Retry" button or press <kbd>ENTER</kbd>
