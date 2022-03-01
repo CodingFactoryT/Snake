@@ -1,7 +1,9 @@
 import java.awt.Color;
-import java.io.File;
+import java.io.BufferedInputStream;
 import java.io.IOException;
+import java.io.InputStream;
 
+import javax.imageio.ImageIO;
 import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
@@ -18,8 +20,9 @@ public class GameFrame extends JFrame{
 		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
 		this.setResizable(false);
 		this.add(gamePanel);
+		InputStream IconStream = new BufferedInputStream(getClass().getResourceAsStream("/resources/AppIcon.png"));
 		try { 
-			this.setIconImage(new ImageIcon(new File("").getCanonicalFile() + "\\resources\\AppIcon.png").getImage()); 
+			this.setIconImage(new ImageIcon(ImageIO.read(IconStream)).getImage()); 
 		}
 		catch(IOException e) {}
 		
