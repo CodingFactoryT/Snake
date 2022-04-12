@@ -26,8 +26,8 @@ For Windows: <br>
 </ul>
 
 ```
-javac main/java/Main.java
-java main/java/Main
+javac Main.java
+java Main
 ```
 <br>
 For executable: <br>
