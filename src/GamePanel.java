@@ -102,6 +102,7 @@ public class GamePanel extends JPanel implements ActionListener{
 		isGameRunning = false;
 		timer.stop();
 		goScreen.setVisible(true);
+		score = 0;
 	}
 	
 	public void retry() {
